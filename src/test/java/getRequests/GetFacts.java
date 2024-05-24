@@ -7,37 +7,21 @@ import org.apache.log4j.PropertyConfigurator;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import baseUrl.CatfactsApiBaseUrl;
-import pojoDatas.GetBreedsResponse;
 import pojoDatas.GetFactResponse;
 import pojoDatas.GetFactsResponse;
 
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.*;
 
-public class GetBreedsAndFacts extends CatfactsApiBaseUrl {
+public class GetFacts extends CatfactsApiBaseUrl {
     private static Logger logger;
 
     @BeforeClass
     public static void setup() {
         PropertyConfigurator.configure("log4j.properties");
-        logger = Logger.getLogger(GetBreedsAndFacts.class);
+        logger = Logger.getLogger(GetFacts.class);
     }
 
-    @Test
-    public void getBreeds() {
-        specification.pathParam("breedsPath", "breeds");
-        logger.info("Set the URL for breeds");
-
-        Response response = given().spec(specification).when().get("/{breedsPath}");
-        logger.info("Sent the GET request for breeds");
-
-        response.then().statusCode(200);
-        logger.info("Asserted the status code is 200");
-
-        GetBreedsResponse breedsResponse = response.as(GetBreedsResponse.class);
-        assertNotNull(breedsResponse);
-        logger.info("Asserted the response body is not empty");
-    }
 
     @Test
     public void getRandomFact() {
