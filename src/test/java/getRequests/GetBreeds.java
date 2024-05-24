@@ -29,7 +29,7 @@ public class GetBreeds extends CatfactsApiBaseUrl {
         logger.info("Set the URL for breeds");
 
         Response response = given().spec(specification).when().get("/{breedsPath}");
-        logger.info("Sent the GET request for breeds");
+        logger.info("Send the GET request for breeds");
 
         response.then().statusCode(200);
         logger.info("Asserted the status code is 200");

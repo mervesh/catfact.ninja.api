@@ -29,7 +29,7 @@ public class GetFacts extends CatfactsApiBaseUrl {
         logger.info("Set the URL for a random fact");
 
         Response response = given().spec(specification).when().get("/{factPath}");
-        logger.info("Sent the GET request for a random fact");
+        logger.info("Send the GET request for a random fact");
 
         response.then().statusCode(200);
         logger.info("Asserted the status code is 200");
@@ -45,7 +45,7 @@ public class GetFacts extends CatfactsApiBaseUrl {
         logger.info("Set the URL for facts");
 
         Response response = given().spec(specification).when().get("/{factsPath}");
-        logger.info("Sent the GET request for facts");
+        logger.info("Send the GET request for facts");
 
         response.then().statusCode(200);
         logger.info("Asserted the status code is 200");
